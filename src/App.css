@@ -1,17 +1,32 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  --primary-color: #19252a;
+  /* --secondary-color: #470e2e; */
+  --secondary-color: #0cb1c7;
+  --title-color: #8cdd1b;
+  background-color: #6d2a60;
+  min-height: 100vh;
 }
 
-/* ************************** */
+
+.container__body {
+  display: grid;
+  align-items: center;
+  gap: 20px;
+}
+
+.container__cards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
 .resident {
   width: 100%;
-  max-width: 320px;
-  background-color: rgb(199, 219, 179);
-  color: rgb(38, 39, 41);
+  max-width: 260px;
+  background-color: var(--secondary-color);
+  color: white;
   border-radius: 5%;
   overflow: hidden;
   transition: transform 100ms ease;
@@ -20,6 +35,7 @@
 .resident:hover {
   transform: scale(1.03);
 }
+
 .resident__header {
   position: relative;
 }
@@ -27,7 +43,7 @@
 .resident__status {
   position: absolute;
   top: 2.5em;
-  background-color: rgb(199, 219, 179);
+  background-color: var(--primary-color);
   width: 35%;
   padding: 0.3em 0.7em;
   border-radius: 0 0.5em 0.5em 0;
@@ -38,7 +54,7 @@
 
 .resident__status__circle {
   display: block;
-  width: 1em;
+  width: 0.8em;
   aspect-ratio: 1;
   background-color: gray;
   border-radius: 50%;
@@ -59,17 +75,18 @@
 .resident__name {
   text-align: center;
   margin-bottom: 0.5em;
-  font-weight: 700;
+  font-weight: 900;
+  color: var(--title-color);
 }
 
 .resident__separator {
-  margin-bottom: 0.5em;
-  border-color: gray;
+  margin-bottom: 0.3em;
+  border-color: rgb(70, 70, 70);
 }
 
 .resident__list {
   display: grid;
-  gap: 0.7em
+  gap: 0.2em
 }
 
 .resident__item {
@@ -78,11 +95,45 @@
 }
 
 .resident__label {
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding-left: 1em;
-  color: gray;
+  color: rgb(70, 70, 70);
 }
 
 .resident__value {
   font-weight: 500;
+  padding-left: 1.5em;
+}
+
+.location {
+  justify-self: center;
+  display: grid;
+  align-content: space-evenly;
+  background-color: var(--secondary-color);
+  text-align: center;
+  border-radius: 9px;
+  width: 40vw;
+  height: 70px;
+  color: white;
+  margin-top: 12px;
+}
+
+.location h2 {
+  color: var(--title-color)
+}
+
+.location_list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location__item__label {
+  color: #19252a;
+  font-weight: 500;
+}
+
+.location__item__value {
+  font-weight: 600;
 }

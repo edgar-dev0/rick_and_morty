@@ -10,8 +10,8 @@ function App() {
   const [inputValue, setInputValue] = useState(getRandomNumber(126))
 
   const numberRandom = getRandomNumber(126)
-  const url = `https://rickandmortyapi.com/api/location/${inputValue}`
-  //const url = `https://rickandmortyapi.com/api/location/${inputValue || 'hola'}`
+  //const url = `https://rickandmortyapi.com/api/location/${inputValue}`
+  const url = `https://rickandmortyapi.com/api/location/${inputValue || 'error'}`
   const [location, getLocation, hasError] = useFetch(url)
 
   useEffect(() => {
@@ -27,22 +27,23 @@ function App() {
   console.log(location)  
 
   return (
-    <div>
-      <h1>Rick and Morty</h1>
-      <form onSubmit={handleSubmit}>
-        <input ref={inputSearch} type="text" />
-        <button>Search</button>
-      </form>
+    <div className='container__main'>
+      <header className='container__header'>
+        <form className='container__form' onSubmit={handleSubmit}>
+          <input ref={inputSearch} type="text" />
+          <button>Search</button>
+        </form>
+      </header>
       {
         hasError
         ? <h2>Hey! you must provide an id from 1 to 126</h2>
         : (
-          <>
+          <div className='container__body'>
             <Location 
               location = { location }
             />
     
-            <div>
+            <div className='container__cards'>
               {
                 location?.residents.map( url => (
                 <ResidentCard
@@ -52,7 +53,7 @@ function App() {
                 ))
               }
             </div>
-          </>
+          </div>
         )  
       }
     </div>

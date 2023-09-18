@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -24,19 +8,24 @@ html {
   font-family: Lato, sans-serif;
 }
 
+
+body {
+  margin: 0;
+}
+
 h1, h2, h3, ul, hr {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-input {
-  outline: none;
-  font-family: inherit;
-}
-
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+input {
+  outline: none;
+  font-family: inherit;
 }
 
 button {
@@ -49,58 +38,38 @@ img {
   display: block;
 }
 
-
-/* ************************** */
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.container__header {
+  /* position: relative; */
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-image: url(./assets/img/bg_rick_and_morty_2.png);
+  background-size: cover; 
+  background-repeat: no-repeat;  
+  height: 20vh;
+  background-position: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.container__form {
+  position: absolute;
+  bottom: 1.5em;
+  right: 2em;
+  /* padding: 8px 16px; */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.container__form input {
+  border: none;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  height: 2.5em;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.container__form button {
+  border: none;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  height: 2.5em;
+  /* background-color: var(--primary-color); */
+  background-color: var(--secondary-color);
+  color: white;
 }

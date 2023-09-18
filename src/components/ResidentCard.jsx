@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 const ResidentCard = ({ url }) => {
   
-  const [resident, getResident, hasError] = useFetch(url)
+  const [resident, getResident] = useFetch(url)
 
   useEffect(() => {
     getResident()
@@ -14,23 +14,31 @@ const ResidentCard = ({ url }) => {
 
   return (
     <article className='resident'>
-      <header className='residet__header'>
+      <header className='resident__header'>
         <img className='resident__image' src={ resident?.image } alt="image" />
         <div className='resident__status'>
           <span className={`resident__status__circle ${resident?.status}`}></span>
-          <span className='resident__status__value'>Status: { resident?.status } </span>
+          <span className='resident__status__value'>{ resident?.status }</span>
         </div>
       </header>
       <section className='resident_body'>
-        <h3 className='resident__name'>Name: { resident?.name }</h3>
+        <h3 className='resident__name'>{ resident?.name }</h3>
         <hr className='resident__separator'/>
         <ul className='resident__list'>
-          <li className='resident__item'><span className='resident__label'></span>spanSpecie: { resident?.species }<span className='resident__value'></span></li>
-          <li className='resident__item'><span className='resident__label'></span>Origin: { resident?.origin.name }<span className='resident__value'></span></li>
-          <li className='resident__item'><span className='resident__label'></span>Type: { resident?.type || 'unknow' }<span className='resident__value'></span></li>
-          <li className='resident__item'><span className='resident__label'></span>Episodes where appear: { resident?.episode.length }<span className='resident__value'></span></li>
+          <li className='resident__item'>
+            <span className='resident__label'>Specie:</span>
+            <span className='resident__value'>{ resident?.species }</span>
+          </li>
+          <li className='resident__item'>
+            <span className='resident__label'>Origin:</span>
+            <span className='resident__value'>{ resident?.origin.name }</span>
+          </li>
+          <li className='resident__item'>
+            <span className='resident__label'>Type:</span>
+            <span className='resident__value'>{ resident?.type || 'unknow' }</span>
+          </li>
+          <li className='resident__item'><span className='resident__label'>Episodes where appear:</span><span className='resident__value'>{ resident?.episode.length }</span></li>
         </ul>
-
       </section>
     </article>
   )
